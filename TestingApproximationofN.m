@@ -6,12 +6,7 @@ close all
 c2 = 0.01^2;
 eps = 1e-14;
 
-%x = [alpha, N]
-
 errfunc = @(x) x(2)^2;
-
-
-%bnd_nl = @(x) bnd(x(1), x(2));
 
 
 A = [1 0;-1 0;];
@@ -20,7 +15,6 @@ Aeq = [];
 beq = [];
 x0 = [sqrt(c2)/2, 10];
 nonconF = @(x) bnd_nl(x, c2, eps);
-%noncon = @nonconF
 x = fmincon(errfunc, x0, A, b, Aeq, beq, [],[], nonconF)
 
 %%
@@ -73,5 +67,4 @@ gamma_a = @(a) log(1 + a^2/2 + sqrt((1+a^2/2)^2 - 1));
 bnd = @(x) -(gamma_a(x(1))*x(2) - log(4*pi*M_a(x(1))) + log(eps));
 ceq = [];
 c(1) = bnd(x);
-%c(1) = x(1) * x(2);
 end
