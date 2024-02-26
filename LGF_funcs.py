@@ -21,6 +21,20 @@ def eval_lgf(c, alpha, n, m, n_pts = 1e10):
     res = np.sum(I)*(1/len(theta))
     return np.real(res)
 
+def integrand_finite_c0(lbd, n,m,alpha,theta):
+    #theta = np.linspace(-np.pi, np.pi, n_pts + 1, endpoint=True)
+    a = alpha*np.cos(theta)*(0-2) + lbd
+    K = (a + np.sqrt(np.square(a) - 4))/2
+    res = ( np.cos(theta*n) *((1/K)**m ) - 1) / (K - 1/K)
+    return res
+
+def eval_lgf_GK_finite_c0(n,m, alpha, eps = 1e-10):
+    #Evaluating the LGF using Gauss-Kronrod quadrature but with the 1D finite integral
+    lbd = 2 + 2*alpha
+    res1 = scipy.integrate.quad(lambda x: integrand_finite_c0(lbd, n,m,alpha,x), -np.pi, 0, epsrel=-1, epsabs=eps, limit = 100000)
+    res2 = scipy.integrate.quad(lambda x: integrand_finite_c0(lbd, n,m,alpha,x), 0, np.pi, epsrel=-1, epsabs=eps, limit = 100000)
+    return (res1[0]+res2[0])/2/np.pi
+
 def eval_lgf_appell(c, n, m, alpha):
     lbd = 2 + 2*alpha
     c_ratio = lbd/(lbd+c**2)
@@ -36,6 +50,21 @@ def eval_lgf_appell(c, n, m, alpha):
     res =  mp.appellf4(avec[0], avec[1], avec[2], avec[3], alpha_a, One_a) * mp.binomial(m+n, n)*mp.power(2, -m-n - 1) / a *(alpha/a)**n * (1/a)**m 
 
     return res
+
+def LGF_Katsura(c, n, m):
+    # Evaluating the LGF using the asymptotic expansion from Katsura and Inawashiro 1973
+    # This is the expansion for large n and m
+    r = np.sqrt(n**2 + m**2)
+    mu = m/r
+    nu = n/r
+    a = 2 + c**2/2
+    x = (a**2 - 4)/(1 + (1 - (1-4/a/a)*(mu**2 - nu**2)**2)**0.5)
+    term1 = 1/2/(np.sqrt(2*np.pi*r))/(x**0.25)
+    term2 = (mu**2 * (1 + (nu**2)*x)**0.5 + nu**2 * (1 + mu**2*x)**0.5)**(-0.5)
+    term3 = np.exp(-r*(mu*(np.arccosh(1+mu**2*x/2)) + nu*(np.arccosh(1+nu**2*x/2))))
+    #term3 = np.exp(-r*(mu*(np.arccosh((1+mu**2*x)**0.5)) + nu*(np.arccosh((1+mu**2*x)**0.5))))
+    return term1*term2*term3
+
 
 def eval_lgf_exp(c, n, m, alpha, n_terms= 100):
     lbd = 2 + 2*alpha
@@ -58,7 +87,7 @@ def eval_lgf_exp(c, n, m, alpha, n_terms= 100):
         #res += mp.binomial(k, )*mp.binomial(n, k)*mp.power(c_ratio, k)*mp.power(1-c_ratio, n-k)*mp.power(foa2, k)
     return res/(lbd + c**2)
 
-def integrand(lbd, c, n,m,alpha,theta):
+def integrand_finite(lbd, c, n,m,alpha,theta):
     #theta = np.linspace(-np.pi, np.pi, n_pts + 1, endpoint=True)
     a = alpha*np.cos(theta)*(0-2) + lbd + c**2
     K = (a + np.sqrt(np.square(a) - 4))/2
@@ -68,7 +97,7 @@ def integrand(lbd, c, n,m,alpha,theta):
 def eval_lgf_GK_finite(c, n,m, alpha, eps = 1e-10):
     #Evaluating the LGF using Gauss-Kronrod quadrature but with the 1D finite integral
     lbd = 2 + 2*alpha
-    res = scipy.integrate.quad(lambda x: integrand(lbd, c, n,m,alpha,x), -np.pi, np.pi, epsrel=-1, epsabs=eps, limit = 100000)
+    res = scipy.integrate.quad(lambda x: integrand_finite(lbd, c, n,m,alpha,x), -np.pi, np.pi, epsrel=-1, epsabs=eps, limit = 100000)
     return res[0]/2/np.pi
 
 def Bessel_representation(c, n, m, alpha, x_up = 10):
@@ -130,3 +159,4 @@ def eval_lgf_rfft(c, alpha, n, n_pts = 1e10):
     
     res += I_pi / (n_pts * 2) * np.power(-1, m_vec)
     return res
+
