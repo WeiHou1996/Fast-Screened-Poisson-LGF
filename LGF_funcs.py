@@ -61,8 +61,8 @@ def LGF_Katsura(c, n, m):
     x = (a**2 - 4)/(1 + (1 - (1-4/a/a)*(mu**2 - nu**2)**2)**0.5)
     term1 = 1/2/(np.sqrt(2*np.pi*r))/(x**0.25)
     term2 = (mu**2 * (1 + (nu**2)*x)**0.5 + nu**2 * (1 + mu**2*x)**0.5)**(-0.5)
-    term3 = np.exp(-r*(mu*(np.arccosh(1+mu**2*x/2)) + nu*(np.arccosh(1+nu**2*x/2))))
-    #term3 = np.exp(-r*(mu*(np.arccosh((1+mu**2*x)**0.5)) + nu*(np.arccosh((1+mu**2*x)**0.5))))
+    #term3 = np.exp(-r*(mu*(np.arccosh(1+mu**2*x/2)) + nu*(np.arccosh(1+nu**2*x/2))))
+    term3 = np.exp(-r*(mu*(np.arccosh((1+mu**2*x)**0.5)) + nu*(np.arccosh((1+nu**2*x)**0.5))))
     return term1*term2*term3
 
 
@@ -138,7 +138,7 @@ def Bessel_representation_pts(c, n, m, alpha, x_up = 10, eps = 1e-12):
     return res[0]
 
 def eval_lgf_rfft(c, alpha, n, n_pts = 1e10):
-    theta = np.linspace(0, np.pi, n_pts, endpoint=False, dtype=np.longdouble)
+    theta = np.linspace(0, np.pi, n_pts, endpoint=False)
 
     
     #theta = np.linspace(0, np.pi, n_pts, endpoint=False)
@@ -151,7 +151,7 @@ def eval_lgf_rfft(c, alpha, n, n_pts = 1e10):
     #res = np.fft.fft(I)*2*np.pi * (n_pts * 2 - 1) / (n_pts * 2)
 
 
-    m_vec = np.arange(0, len(res), 1, dtype=np.longdouble)
+    m_vec = np.arange(0, len(res), 1)
 
     a_pi = alpha*np.cos(np.pi)*(0-2) + lbd + c**2
     K_pi = (a_pi + np.sqrt(np.square(a_pi) - 4))/2
