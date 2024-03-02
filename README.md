@@ -12,7 +12,18 @@ The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the scr
 
 ## Reference
 [1] Kotera, Takeyasu. "Localized vibration and random walk." Progress of Theoretical Physics Supplement 23 (1962): 141-156.
+
 [2] Katsura, Shigetoshi, and Sakari Inawashiro. "Lattice Green's functions for the rectangular and the square lattices at arbitrary points." Journal of Mathematical Physics 12.8 (1971): 1622-1630.
+
 [3] Martinsson, Per-Gunnar, and Gregory J. Rodin. "Asymptotic expansions of lattice Green's functions." Proceedings of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences 458.2027 (2002): 2609-2622.
-[4] Gabbard, James, and Wim M. van Rees. "Lattice Green’s Functions for High-Order Finite Difference Stencils." SIAM Journal on Numerical Analysis 62.1 (2024): 25-47.
-[5] Hou, Wei, and Tim Colonius. "An adaptive lattice Green's function method for external flows with two unbounded and one homogeneous directions." arXiv preprint arXiv:2402.13370 (2024).
+
+[4] Lawler, Gregory F., and Vlada Limic. Random walk: a modern introduction. Vol. 123. Cambridge University Press, 2010.
+
+[5] Gabbard, James, and Wim M. van Rees. "Lattice Green’s Functions for High-Order Finite Difference Stencils." SIAM Journal on Numerical Analysis 62.1 (2024): 25-47.
+
+[6] Hou, Wei, and Tim Colonius. "An adaptive lattice Green's function method for external flows with two unbounded and one homogeneous directions." arXiv preprint arXiv:2402.13370 (2024).
+
+## License
+ 
+Copyright 2023.
+This code is under the MIT license (see [LICENSE](https://github.com/WeiHou1996/Fast-Screened-Poisson-LGF/blob/main/LICENSE) file for full text).
