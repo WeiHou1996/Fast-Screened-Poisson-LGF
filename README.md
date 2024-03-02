@@ -1,7 +1,5 @@
 # Fast Screened Poisson LGF <a href="https://github.com/WeiHou1996/Fast-Screened-Poisson-LGF/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
-This repository provides a set of algorithms to efficiently evaluate the lattice Green's function (LGF) of the screened Poisson equation. The file "LGF_funcs.py" contains various methods to compute the LGF.
-
-Lattice Green's function of the screened Poisson equation is the fundamental solution of the discrete screened Poisson equation. This LGF finds its application in many areas such as:
+This repository provides a set of algorithms to efficiently evaluate the lattice Green's function (LGF) of the screened Poisson equation. This LGF is the fundamental solution of the discrete screened Poisson equation. It finds its application in many areas such as:
 
   1. Solving the incompressible Navier-Stokes equations
   2. Computing the return probabilities of a random walk with killing
@@ -25,5 +23,5 @@ The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the scr
 
 ## License
  
-Copyright 2023.
+Copyright 2024.
 This code is under the MIT license (see [LICENSE](https://github.com/WeiHou1996/Fast-Screened-Poisson-LGF/blob/main/LICENSE) file for full text).
