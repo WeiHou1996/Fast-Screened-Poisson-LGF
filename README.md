@@ -8,6 +8,16 @@ This repository provides a set of algorithms to efficiently evaluate the lattice
 
 The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the screened Poisson equation. The files in the folder "Comparisons" compare the runtime and accuracy of various methods. The files in the folder "Applications" demonstrate the potential use of the LGF of the screened Poisson equation.
 
+
+```bibtex
+@article{hou2024lattice,   
+     title={Fast and robust method for screened {P}oisson lattice {G}reen's function using asymptotic expansion and {F}ast {F}ourier {T}ransform},   
+     author={Hou, Wei and Colonius, Tim},   
+     journal={arXiv preprint arXiv:0000.00000},   
+     year={2024}   
+ }   
+ ```
+
 ## Reference
 [1] Kotera, Takeyasu. "Localized vibration and random walk." Progress of Theoretical Physics Supplement 23 (1962): 141-156.
 
