@@ -1,2 +1,18 @@
 # Fast Screened Poisson LGF <a href="https://github.com/WeiHou1996/Fast-Screened-Poisson-LGF/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
-This repository provides a set of algorithms to efficiently evaluate the lattice Green's function of the screened Poisson equation. 
+This repository provides a set of algorithms to efficiently evaluate the lattice Green's function (LGF) of the screened Poisson equation. The file "LGF_funcs.py" contains various methods to compute the LGF.
+
+Lattice Green's function of the screened Poisson equation is the fundamental solution of the discrete screened Poisson equation. This LGF finds its application in many areas such as:
+
+  1. Solving the incompressible Navier-Stokes equations
+  2. Computing the return probabilities of a random walk with killing
+  3. Modeling the effects of material impurities
+  4. Many others...
+
+The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the screened Poisson equation. The files in the folder "Comparisons" compare the runtime and accuracy of various methods. The files in the folder "Applications" demonstrate the potential use of the LGF of the screened Poisson equation.
+
+## Reference
+[1] Kotera, Takeyasu. "Localized vibration and random walk." Progress of Theoretical Physics Supplement 23 (1962): 141-156.
+[2] Katsura, Shigetoshi, and Sakari Inawashiro. "Lattice Green's functions for the rectangular and the square lattices at arbitrary points." Journal of Mathematical Physics 12.8 (1971): 1622-1630.
+[3] Martinsson, Per-Gunnar, and Gregory J. Rodin. "Asymptotic expansions of lattice Green's functions." Proceedings of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences 458.2027 (2002): 2609-2622.
+[4] Gabbard, James, and Wim M. van Rees. "Lattice Green’s Functions for High-Order Finite Difference Stencils." SIAM Journal on Numerical Analysis 62.1 (2024): 25-47.
+[5] Hou, Wei, and Tim Colonius. "An adaptive lattice Green's function method for external flows with two unbounded and one homogeneous directions." arXiv preprint arXiv:2402.13370 (2024).
