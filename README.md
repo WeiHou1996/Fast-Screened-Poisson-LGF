@@ -13,7 +13,7 @@ The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the scr
 @article{hou2024lattice,   
      title={Fast and robust method for screened {P}oisson lattice {G}reen's function using asymptotic expansion and {F}ast {F}ourier {T}ransform},   
      author={Hou, Wei and Colonius, Tim},   
-     journal={arXiv preprint arXiv:0000.00000},   
+     journal={arXiv preprint arXiv:2403.03076},   
      year={2024}   
  }   
  ```
