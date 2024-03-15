@@ -6,8 +6,7 @@ This repository provides a set of algorithms to efficiently evaluate the lattice
   3. Modeling the effects of material impurities
   4. Many others...
 
-The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the screened Poisson equation. The files in the folder "Comparisons" compare the runtime and accuracy of various methods. The files in the folder "Applications" demonstrate the potential use of the LGF of the screened Poisson equation.
-
+The file "src/LGF_funcs.py" contains many methods to tabulate the LGF of the screened Poisson equation. The files in the folder "Comparisons" compare the runtime and accuracy of various methods. The files in the folder "Applications" demonstrate the potential use of the LGF of the screened Poisson equation. The scripts described above are used to generate the performance results of the following paper using an Apple M1 Pro chip.
 
 ```bibtex
 @article{hou2024lattice,   
